@@ -39,6 +39,8 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      width: 100%;
     }
 
     body {
@@ -47,6 +49,8 @@
       background: var(--bg-50);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      width: 100%;
+      position: relative;
       line-height: 1.6;
     }
 
@@ -1035,6 +1039,7 @@
         left: 16px;
         right: 16px;
         width: auto;
+        max-width: calc(100vw - 32px);
         transform: none;
         border-radius: 16px;
       }
@@ -1045,6 +1050,10 @@
 
       .nav-logo {
         font-size: 15px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 75%;
       }
 
       .nav-logo span {
@@ -1082,6 +1091,7 @@
 
       .nav-hamburger {
         display: block;
+        flex-shrink: 0;
       }
       
       .mobile-only {
@@ -1192,13 +1202,25 @@
         padding: 48px 20px 24px 20px;
         max-height: 95vh;
         border-radius: 20px;
+        width: 100%;
+        max-width: calc(100vw - 32px);
+        margin: 0 auto;
+        box-sizing: border-box;
+      }
+      
+      .modal-overlay.active .modal-box {
+        transform: none;
       }
 
       .modal-close {
-        top: 12px;
-        right: 12px;
+        position: fixed;
+        top: 24px;
+        right: 24px;
         width: 36px;
         height: 36px;
+        z-index: 200;
+        background: var(--white);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
       }
 
       .modal-header {
@@ -1234,6 +1256,51 @@
       
       .m-card p {
         font-size: 14px;
+      }
+
+      .m-tags {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .m-tag {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        border-radius: 16px;
+        background: var(--bg-50);
+        width: 100%;
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--heading);
+        gap: 16px;
+        border: 1px solid var(--border);
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .m-tag.highlight {
+        background: var(--blue-light);
+        border-color: rgba(2, 132, 199, 0.1);
+        color: var(--blue-dark);
+      }
+
+      .m-tag::after {
+        content: "Agendar exame";
+        background: var(--white);
+        color: var(--blue-dark);
+        border: 1px solid var(--border);
+        padding: 8px 16px;
+        border-radius: 10px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: auto;
+      }
+
+      #modalExames .modal-box > div:last-child {
+        display: none;
       }
     }
   </style>
@@ -1750,15 +1817,28 @@
     // ─── MODALS ───
     window.openModal = function (id) {
       document.getElementById(id).classList.add('active');
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
     };
     window.closeModal = function (id) {
       document.getElementById(id).classList.remove('active');
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
     };
     document.querySelectorAll('.modal-overlay').forEach(function (el) {
       el.addEventListener('click', function (e) {
         if (e.target === this) closeModal(this.id);
+      });
+    });
+
+    // Mobile Exames Tags Click
+    document.querySelectorAll('.m-tag').forEach(function(tag) {
+      tag.addEventListener('click', function() {
+        if(window.innerWidth <= 768) {
+          // Extrai o texto ignorando o ::after (que não entra no innerText da mesma forma, mas por segurança removemos "Agendar exame")
+          var proc = this.innerText.replace('Agendar exame', '').trim();
+          openWa(proc);
+        }
       });
     });
 
