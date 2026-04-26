@@ -1,0 +1,1780 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dr. André Mendes — Instituto da Visão | Oftalmologia em Curitiba</title>
+  <meta name="description"
+    content="Oftalmologista especialista em cirurgia refrativa e catarata. Mais de 15 anos cuidando da sua visão em Curitiba. Agende sua consulta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --bg-50: #F8FAFC;
+      --blue-light: #F0F9FF;
+      --blue: #0284C7;
+      --blue-dark: #0369A1;
+      --blue-darker: #0C4A6E;
+      --green: #059669;
+      --green-hover: #047857;
+      --text: #334155;
+      --heading: #0F172A;
+      --muted: #64748B;
+      --border: #E2E8F0;
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+      --shadow-cta: 0 8px 20px -4px rgba(5, 150, 105, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg-50);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--heading);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      width: calc(100% - 32px);
+      max-width: 1200px;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .nav.scrolled {
+      top: 8px;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+    }
+
+    .nav-logo {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--blue-dark);
+    }
+
+    .nav-logo span {
+      font-weight: 400;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-cta {
+      background: var(--green);
+      color: #fff;
+      padding: 10px 24px;
+      border-radius: 12px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .nav-cta:hover {
+      background: var(--green-hover);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta:active {
+      transform: scale(0.98);
+    }
+
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100dvh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 140px 32px 80px;
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 24px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 6vw, 56px);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width:768px) {
+      .hero h1 {
+        font-size: 52px;
+      }
+    }
+
+    .hero-credentials {
+      font-size: 15px;
+      color: rgba(255, 255, 255, 0.6);
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 16px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(.16, 1, .3, 1);
+      will-change: transform;
+      box-shadow: var(--shadow-cta);
+    }
+
+    .hero-cta:hover {
+      background: var(--green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -4px rgba(5, 150, 105, 0.4);
+    }
+
+    .hero-cta:active {
+      transform: scale(0.98);
+    }
+
+    .hero-cta svg {
+      width: 20px;
+      height: 20px;
+      fill: #fff;
+    }
+
+    /* ─── SECTION COMMON ─── */
+    .section {
+      padding: 120px 24px;
+    }
+
+    .section-alt {
+      background: var(--white);
+    }
+
+    body {
+      background: var(--bg-50);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 40px);
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: -0.02em;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 56px;
+      max-width: 55ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mobile-only {
+      display: none;
+    }
+
+    /* ─── QUEM SOMOS ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--blue-light), #BAE6FD);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--white);
+      box-shadow: var(--shadow-md);
+    }
+
+    .about-img-placeholder {
+      color: var(--blue-dark);
+      opacity: 0.8;
+    }
+
+    .about-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      background: radial-gradient(circle 200px at var(--mx, 50%) var(--my, 50%), rgba(255, 255, 255, 0.4), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+
+    .about-img:hover::after {
+      opacity: 1;
+    }
+
+    .about-text h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    .about-text p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .about-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .about-badge {
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      border: 1px solid rgba(2, 132, 199, 0.1);
+    }
+
+    /* ─── SERVIÇOS ─── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    /* ─── SERVIÇOS NOVO (CARDS PREMIUM) ─── */
+    .service-card-new {
+      background: var(--white);
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .service-card-new:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: var(--blue-light);
+    }
+
+    .sc-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+      transition: all 0.3s;
+    }
+
+    .service-card-new:hover .sc-icon {
+      background: var(--blue);
+      color: var(--white);
+      transform: scale(1.05);
+    }
+
+    .service-card-new h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 12px;
+    }
+
+    .service-card-new p {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .sc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: var(--bg-50);
+      color: var(--blue-dark);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.2s;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .sc-btn:hover {
+      background: var(--blue-light);
+      border-color: var(--blue-light);
+      color: var(--blue-darker);
+    }
+
+    /* ─── MODALS ─── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: var(--white);
+      border-radius: 24px;
+      width: 100%;
+      max-width: 800px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 40px;
+      position: relative;
+      transform: scale(0.95) translateY(20px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-box::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-box::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .modal-box::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 4px;
+    }
+
+    .modal-box::-webkit-scrollbar-thumb:hover {
+      background: var(--muted);
+    }
+
+    .modal-overlay.active .modal-box {
+      transform: scale(1) translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-50);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+
+    .modal-close:hover {
+      background: var(--border);
+      color: var(--heading);
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      margin-bottom: 32px;
+    }
+
+    .mh-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .modal-header h3 {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .modal-header p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 16px;
+    }
+
+    .m-card {
+      background: var(--bg-50);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .m-card:hover {
+      border-color: var(--blue-light);
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .m-card h4 {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .m-card p {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .m-card button {
+      background: var(--white);
+      color: var(--blue-dark);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      align-self: flex-start;
+    }
+
+    .m-card button:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: var(--white);
+    }
+
+    .m-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .m-tag {
+      padding: 10px 16px;
+      border-radius: 12px;
+      background: var(--bg-50);
+      border: 1px solid var(--border);
+      font-size: 14px;
+      color: var(--heading);
+      font-weight: 500;
+    }
+
+    .m-tag.highlight {
+      background: var(--blue-light);
+      border-color: rgba(2, 132, 199, 0.1);
+      color: var(--blue-dark);
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: var(--blue-darker);
+      padding: 100px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at center, rgba(2, 132, 199, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.3;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 16px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(.16, 1, .3, 1);
+      box-shadow: var(--shadow-cta);
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      background: var(--green-hover);
+      box-shadow: 0 12px 24px -4px rgba(5, 150, 105, 0.4);
+    }
+
+    .cta-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* ─── DEPOIMENTOS ─── */
+    .testimonials-track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 400px;
+      position: relative;
+      perspective: 1200px;
+      /* Removemos o overflow: hidden para evitar os cortes secos nas laterais.
+         Como o body já possui overflow-x: hidden, não haverá scroll horizontal. */
+    }
+
+    .testimonial-card {
+      position: absolute;
+      width: 340px;
+      background: var(--white);
+      border-radius: 24px;
+      padding: 36px 32px;
+      border: 1px solid var(--border);
+      transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+    }
+
+    .testimonial-stars {
+      color: #F59E0B;
+      display: flex;
+      gap: 4px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-stars svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--heading);
+    }
+
+    .testimonial-source {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    .carousel-nav {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .carousel-nav button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .carousel-nav button:hover {
+      background: var(--blue-light);
+      border-color: var(--blue-light);
+      color: var(--blue-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* ─── LOCALIZAÇÃO ─── */
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .location-map {
+      width: 100%;
+      aspect-ratio: 16/10;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-50);
+      box-shadow: var(--shadow-md);
+    }
+
+    .location-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .location-info h3 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--heading);
+      margin-bottom: 24px;
+    }
+
+    .location-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .location-detail .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--blue-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--blue-dark);
+    }
+
+    .location-detail .label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+
+    .location-detail .value {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--heading);
+      line-height: 1.4;
+    }
+
+    .location-cta {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--green);
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 16px;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      box-shadow: var(--shadow-cta);
+    }
+
+    .location-cta:hover {
+      background: var(--green-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -4px rgba(5, 150, 105, 0.4);
+    }
+
+    /* ─── FAQ ─── */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg-50);
+      transition: all 0.3s;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--blue-light);
+    }
+
+    .faq-q {
+      padding: 24px 28px;
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 17px;
+      color: var(--heading);
+      transition: color 0.2s;
+    }
+
+    .faq-item:hover .faq-q {
+      color: var(--blue-dark);
+    }
+
+    .faq-q .arrow {
+      transition: transform 0.3s;
+      color: var(--muted);
+    }
+
+    .faq-item.open .faq-q .arrow {
+      transform: rotate(180deg);
+      color: var(--blue);
+    }
+
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 250px;
+    }
+
+    .faq-a-inner {
+      padding: 0 28px 24px;
+      font-size: 16px;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ─── FOOTER ─── */
+    .footer {
+      background: var(--heading);
+      color: var(--muted);
+      padding: 80px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer h4 {
+      color: #fff;
+      font-size: 16px;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .footer p,
+    .footer a {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #94A3B8;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      max-width: 1000px;
+      margin: 64px auto 0;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 14px;
+      text-align: center;
+      color: #64748B;
+    }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .wa-float {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      z-index: 90;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 32px rgba(5, 150, 105, 0.4);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(.16, 1, .3, 1);
+      will-change: transform;
+    }
+
+    .wa-float:hover {
+      box-shadow: 0 12px 40px rgba(5, 150, 105, 0.6);
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .wa-float:active {
+      transform: scale(0.95) !important;
+    }
+
+    .wa-float svg {
+      width: 32px;
+      height: 32px;
+      fill: #fff;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width:768px) {
+      .nav {
+        top: 8px;
+        left: 16px;
+        right: 16px;
+        width: auto;
+        transform: none;
+        border-radius: 16px;
+      }
+
+      .nav-inner {
+        padding: 10px 16px;
+      }
+
+      .nav-logo {
+        font-size: 15px;
+      }
+
+      .nav-logo span {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: var(--shadow-md);
+        margin-top: 8px;
+        gap: 20px;
+        align-items: center;
+      }
+
+      .nav-links.active a {
+        font-size: 16px;
+        font-weight: 600;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: block;
+      }
+      
+      .mobile-only {
+        display: initial;
+      }
+
+      .hero {
+        min-height: 75dvh;
+      }
+
+      .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        text-align: center;
+      }
+
+      .about-text {
+        display: contents;
+      }
+
+      .about-text h2 {
+        order: -1;
+      }
+
+      .about-img {
+        order: 0;
+      }
+
+      .about-text p {
+        order: 1;
+        padding: 0 24px;
+      }
+
+      .about-badges {
+        order: 2;
+        justify-content: center;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+      }
+      
+      .location-info {
+        display: contents;
+      }
+
+      .location-info h3 {
+        order: -1;
+        text-align: center;
+        margin-bottom: 32px;
+        width: 100%;
+      }
+
+      .location-map {
+        order: 0;
+        margin-bottom: 40px;
+        width: 100%;
+      }
+
+      .location-detail {
+        order: 1;
+        width: 100%;
+      }
+
+      .location-info > a {
+        order: 2;
+        align-self: center;
+        margin-top: 16px;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .testimonial-card {
+        width: 300px;
+      }
+
+      .section {
+        padding: 80px 20px;
+      }
+
+      .hero-content {
+        padding: 120px 20px 60px;
+      }
+
+      .wa-float {
+        bottom: 20px;
+        right: 20px;
+        width: 56px;
+        height: 56px;
+      }
+
+      .modal-overlay {
+        padding: 16px;
+      }
+
+      .modal-box {
+        padding: 48px 20px 24px 20px;
+        max-height: 95vh;
+        border-radius: 20px;
+      }
+
+      .modal-close {
+        top: 12px;
+        right: 12px;
+        width: 36px;
+        height: 36px;
+      }
+
+      .modal-header {
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .mh-icon {
+        margin: 0 auto 16px auto;
+      }
+
+      .modal-header h3 {
+        font-size: 22px;
+        line-height: 1.3;
+      }
+
+      .modal-header p {
+        font-size: 14px;
+      }
+
+      .modal-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .m-card {
+        padding: 16px;
+      }
+      
+      .m-card h4 {
+        font-size: 17px;
+      }
+      
+      .m-card p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <div class="nav-logo">Dra. Amanda Mendes <span>| Instituto da Visão</span></div>
+      <ul class="nav-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#localizacao">Localização</a></li>
+      </ul>
+      <a href="https://wa.me/5541999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta"
+        target="_blank"><button class="nav-cta">Agendar Consulta</button></a>
+      <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <video class="hero-video" autoplay loop muted playsinline>
+      <source
+        src="https://zqbteazpirbktxbmhzog.supabase.co/storage/v1/object/public/agencia%20converteu/banner-video-new.mp4"
+        type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <div class="hero-badge">Dra. Amanda Mendes — CRM/PR 00000</div>
+      <h1>Sua próxima consulta pode mudar a forma como você enxerga o mundo.</h1>
+      <p class="hero-credentials">Oftalmologia | Cirurgia Refrativa | Catarata</p>
+      <a href="https://wa.me/5541999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" target="_blank">
+        <button class="hero-cta" id="heroCta">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.025.503 3.935 1.393 5.613L0 24l6.613-1.329A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.63-.506-5.138-1.388l-.362-.214-3.762.756.768-3.544-.24-.381A9.723 9.723 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75S21.75 6.615 21.75 12s-4.365 9.75-9.75 9.75z" />
+          </svg>
+          Agendar Consulta
+        </button>
+      </a>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img" id="aboutImg">
+          <img
+            src="https://zqbteazpirbktxbmhzog.supabase.co/storage/v1/object/public/agencia%20converteu/client-ophthalmologist-s-office%20(1).jpg"
+            alt="Dra. Amanda Mendes" style="width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+        </div>
+        <div class="about-text">
+          <h2>Mais de 15 anos cuidando<br>da sua visão.</h2>
+          <p>A Dra. Amanda Mendes é oftalmologista especialista em cirurgia refrativa e catarata, com formação pela
+            Universidade Federal do Paraná e título de especialista pelo CBO. Atua em Curitiba há mais de 15 anos,
+            combinando tecnologia de ponta com atendimento humanizado.</p>
+          <div class="about-badges">
+            <span class="about-badge">CRM/PR 00000</span>
+            <span class="about-badge">Título CBO</span>
+            <span class="about-badge">Sociedade Brasileira de Oftalmologia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section class="section section-alt" id="servicos">
+    <div class="container">
+      <h2 class="section-title">O que oferecemos</h2>
+      <p class="section-subtitle">Procedimentos e exames com tecnologia <br class="mobile-only">de última geração.</p>
+      <div class="services-grid">
+        <!-- Cirurgias Card -->
+        <div class="service-card-new">
+          <div class="sc-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+            </svg>
+          </div>
+          <h3>Cirurgias</h3>
+          <p>Procedimentos avançados como catarata, refrativa a laser, implantes para presbiopia e tratamentos para
+            ceratocone.</p>
+          <button class="sc-btn" onclick="openModal('modalCirurgias')">Ver todas as cirurgias</button>
+        </div>
+        <!-- Exames Card -->
+        <div class="service-card-new">
+          <div class="sc-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
+              <path d="M8.5 8.5v.01" />
+              <path d="M16 15.5v.01" />
+              <path d="M12 12v.01" />
+              <path d="M11 17h.01" />
+              <path d="M7 14h.01" />
+            </svg>
+          </div>
+          <h3>Exames</h3>
+          <p>Da avaliação visual ao OCT 3D, estrutura completa de exames com tecnologia de ponta para diagnósticos
+            precisos.</p>
+          <button class="sc-btn" onclick="openModal('modalExames')">Ver todos os exames</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA INTERMEDIÁRIO -->
+  <section class="cta-section">
+    <h2>N&atilde;o espere o pior<br>pra procurar ajuda.</h2>
+    <a href="https://wa.me/5541999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" target="_blank">
+      <button class="cta-btn" id="ctaBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+          <path
+            d="M12 0C5.373 0 0 5.373 0 12c0 2.025.503 3.935 1.393 5.613L0 24l6.613-1.329A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.63-.506-5.138-1.388l-.362-.214-3.762.756.768-3.544-.24-.381A9.723 9.723 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75S21.75 6.615 21.75 12s-4.365 9.75-9.75 9.75z" />
+        </svg>
+        Agendar pelo WhatsApp
+      </button>
+    </a>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section" id="depoimentos">
+    <div class="container">
+      <h2 class="section-title">O que nossos pacientes dizem</h2>
+      <p class="section-subtitle">Avaliações reais de quem confiou na gente.</p>
+      <div class="testimonials-track" id="testTrack"></div>
+      <div class="carousel-nav">
+        <button onclick="moveTest(-1)" aria-label="Anterior">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+        <button onclick="moveTest(1)" aria-label="Próximo">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="section section-alt" id="localizacao">
+    <div class="container">
+      <div class="location-grid">
+        <div class="location-map">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.8!2d-49.29!3d-25.44!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjXCsDI2JzI0LjAiUyA0OcKwMTcnMjQuMCJX!5e0!3m2!1spt-BR!2sbr!4v1"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="location-info">
+          <h3>Venha nos visitar</h3>
+          <div class="location-detail">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <div>
+              <div class="label">Endereço</div>
+              <div class="value">Rua Exemplo, 123 — Batel, Curitiba - PR</div>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="label">Horário</div>
+              <div class="value">Seg a Sex: 8h às 18h<br>Sáb: 8h às 12h</div>
+            </div>
+          </div>
+          <div class="location-detail">
+            <div class="icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <div class="label">Telefone</div>
+              <div class="value">(41) 99999-9999</div>
+            </div>
+          </div>
+          <a href="https://wa.me/5541999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta"
+            target="_blank">
+            <button class="location-cta">Agende agora sua consulta conosco</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <p class="section-subtitle">Tire suas dúvidas antes de agendar.</p>
+      <div class="faq-list">
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Quais convênios vocês atendem? <span class="arrow"><svg width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg></span></div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Atendemos os principais convênios da região. Entre em contato pelo WhatsApp para
+              confirmar se o seu é aceito.</div>
+          </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Preciso de encaminhamento para agendar? <span class="arrow"><svg width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg></span></div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Não. Você pode agendar diretamente pelo WhatsApp ou telefone, sem necessidade de
+              encaminhamento.</div>
+          </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Quanto tempo dura uma consulta? <span class="arrow"><svg width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg></span></div>
+          <div class="faq-a">
+            <div class="faq-a-inner">A consulta inicial dura em média 40 minutos, incluindo exames básicos.
+              Procedimentos específicos podem levar mais tempo.</div>
+          </div>
+        </div>
+        <div class="faq-item" onclick="toggleFaq(this)">
+          <div class="faq-q">Vocês fazem cirurgia a laser para miopia? <span class="arrow"><svg width="18" height="18"
+                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg></span></div>
+          <div class="faq-a">
+            <div class="faq-a-inner">Sim. Realizamos cirurgia refrativa a laser (LASIK e PRK) com tecnologia de última
+              geração. Agende uma avaliação pra saber se você é candidato.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h4>Instituto da Visão</h4>
+        <p>Dra. Amanda Mendes<br>Oftalmologia | Cirurgia Refrativa | Catarata<br>CRM/PR 00000</p>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <p><a href="#inicio">Início</a><br><a href="#sobre">Sobre</a><br><a href="#servicos">Serviços</a><br><a
+            href="#depoimentos">Depoimentos</a></p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <p>Rua Exemplo, 123 — Batel<br>Curitiba - PR<br>(41) 99999-9999<br><a href="https://wa.me/5541999999999"
+            target="_blank">WhatsApp</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2026 Instituto da Visão. Todos os direitos reservados.</div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/5541999999999?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta" target="_blank"
+    class="wa-float" id="waFloat" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+      <path
+        d="M12 0C5.373 0 0 5.373 0 12c0 2.025.503 3.935 1.393 5.613L0 24l6.613-1.329A11.955 11.955 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-1.875 0-3.63-.506-5.138-1.388l-.362-.214-3.762.756.768-3.544-.24-.381A9.723 9.723 0 012.25 12c0-5.385 4.365-9.75 9.75-9.75S21.75 6.615 21.75 12s-4.365 9.75-9.75 9.75z" />
+    </svg>
+  </a>
+
+  <!-- MODAL CIRURGIAS -->
+  <div class="modal-overlay" id="modalCirurgias">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Fechar" onclick="closeModal('modalCirurgias')"><svg width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg></button>
+      <div class="modal-header">
+        <div class="mh-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+          </svg></div>
+        <h3>Nossas Cirurgias</h3>
+        <p>Realizamos os procedimentos mais avançados da oftalmologia com segurança e precisão.</p>
+      </div>
+      <div class="modal-grid">
+        <div class="m-card">
+          <h4>Cirurgia de Catarata</h4>
+          <p>Substituição do cristalino por lente intraocular, devolvendo a nitidez visual.</p>
+          <button onclick="openWa('Cirurgia de catarata')">Agendar avaliação</button>
+        </div>
+        <div class="m-card">
+          <h4>Cirurgia a Laser</h4>
+          <p>Correção definitiva para miopia, astigmatismo e hipermetropia.</p>
+          <button onclick="openWa('Cirurgia a laser')">Agendar avaliação</button>
+        </div>
+        <div class="m-card">
+          <h4>Lentes Multifocais</h4>
+          <p>Solução moderna e eficaz para presbiopia (vista cansada).</p>
+          <button onclick="openWa('Implante de lentes multifocais')">Agendar avaliação</button>
+        </div>
+        <div class="m-card">
+          <h4>Ceratocone</h4>
+          <p>Tratamentos como Crosslinking e anel de Ferrara para estabilizar a visão.</p>
+          <button onclick="openWa('Ceratocone')">Agendar avaliação</button>
+        </div>
+        <div class="m-card">
+          <h4>Pterígio</h4>
+          <p>Remoção da pele nos olhos (carne crescida) com transplante conjuntival.</p>
+          <button onclick="openWa('Pterígio')">Agendar avaliação</button>
+        </div>
+        <div class="m-card">
+          <h4>Plástica Ocular</h4>
+          <p>Correções estéticas e funcionais nas pálpebras (Blefaroplastia).</p>
+          <button onclick="openWa('Cirurgia palpebral')">Agendar avaliação</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL EXAMES -->
+  <div class="modal-overlay" id="modalExames">
+    <div class="modal-box">
+      <button class="modal-close" aria-label="Fechar" onclick="closeModal('modalExames')"><svg width="24" height="24"
+          viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg></button>
+      <div class="modal-header">
+        <div class="mh-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5" />
+            <path d="M8.5 8.5v.01" />
+            <path d="M16 15.5v.01" />
+            <path d="M12 12v.01" />
+            <path d="M11 17h.01" />
+            <path d="M7 14h.01" />
+          </svg></div>
+        <h3>Nossos Exames</h3>
+        <p>Centro de diagnóstico completo para avaliações oculares avançadas.</p>
+      </div>
+      <div class="m-tags">
+        <span class="m-tag">Avaliação de vias lacrimais</span>
+        <span class="m-tag">Acuidade visual à laser</span>
+        <span class="m-tag">Angiofluoresceinografia</span>
+        <span class="m-tag">Biometria ultrassônica</span>
+        <span class="m-tag">Campimetria computadorizada</span>
+        <span class="m-tag">Ceratoscopia computadorizada</span>
+        <span class="m-tag">Mapeamento de retina</span>
+        <span class="m-tag">Retinografia colorida</span>
+        <span class="m-tag">Ultrassonografia Ocular</span>
+        <span class="m-tag">Tonometria de aplanação</span>
+        <span class="m-tag">Paquimetria ultrassônica</span>
+        <span class="m-tag">Gonioscopia</span>
+      </div>
+      <div class="modal-header" style="margin-top: 40px; margin-bottom: 24px;">
+        <h3 style="font-size: 20px;">Exames Especiais</h3>
+      </div>
+      <div class="m-tags">
+        <span class="m-tag highlight">IOL Master</span>
+        <span class="m-tag highlight">OCT 3D Retina</span>
+        <span class="m-tag highlight">OCT 3D Glaucoma</span>
+        <span class="m-tag highlight">OCT Segmento Anterior</span>
+        <span class="m-tag highlight">Galilei</span>
+      </div>
+      <div style="margin-top:40px;">
+        <button class="sc-btn"
+          style="width:100%; justify-content:center; background:var(--blue); color:var(--white); border:none;"
+          onclick="openWa('Agendar Exames')">Agendar exames agora</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      // ─── NAV SCROLL ───
+      window.addEventListener('scroll', function () {
+        document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+      });
+
+      // ─── MOBILE MENU ───
+      document.getElementById('hamburger').addEventListener('click', function () {
+        document.querySelector('.nav-links').classList.toggle('active');
+      });
+      document.querySelectorAll('.nav-links a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          document.querySelector('.nav-links').classList.remove('active');
+        });
+      });
+
+      // ─── ABOUT SPOTLIGHT ───
+      var aboutImg = document.getElementById('aboutImg');
+      aboutImg.addEventListener('mousemove', function (e) {
+        var r = aboutImg.getBoundingClientRect();
+        aboutImg.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        aboutImg.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+
+      // ─── TESTIMONIALS COVERFLOW ───
+      var testimonials = [
+        { text: '"Fiz minha cirurgia de catarata com a Dra. Amanda e não acreditei no resultado. Voltei a enxergar perfeitamente! Atendimento impecável."', author: 'Maria Silva' },
+        { text: '"Depois de anos usando óculos, fiz a cirurgia a laser. Melhor decisão da minha vida. A Dra. Amanda explicou tudo com paciência."', author: 'Carlos Oliveira' },
+        { text: '"Consultório limpo, equipe atenciosa e a médica é excelente. Indico de olhos fechados — literalmente!"', author: 'Ana Beatriz' },
+        { text: '"A Dra. Amanda me passou muita segurança. A cirurgia de correção de grau foi rápida e a recuperação surpreendente."', author: 'Rafael Costa' },
+        { text: '"Excelente profissional! Fiz o tratamento para ceratocone e estabilizei meu problema. A clínica tem equipamentos de ponta."', author: 'Juliana Mendes' },
+        { text: '"Levo meus pais para acompanhamento de glaucoma há anos. A confiança que temos na Dra. Amanda é absoluta."', author: 'Roberto Almeida' },
+        { text: '"O atendimento humanizado faz toda a diferença. O diagnóstico foi preciso e o tratamento muito eficaz. Muito obrigado!"', author: 'Fernanda Lima' }
+      ];
+      var starSvg = '<svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+      var starsHTML = starSvg.repeat(5);
+      var track = document.getElementById('testTrack');
+      var currentT = Math.floor(testimonials.length / 2);
+
+      testimonials.forEach(function (t, i) {
+        var card = document.createElement('div');
+        card.className = 'testimonial-card';
+        card.innerHTML = '<div class="testimonial-stars">' + starsHTML + '</div><div class="testimonial-text">' + t.text + '</div><div class="testimonial-author">' + t.author + '</div><div class="testimonial-source"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg> Avaliação Autêntica</div>';
+        card.addEventListener('click', function () {
+          if (card.style.opacity > 0) {
+            currentT = i;
+            renderTest();
+          }
+        });
+        track.appendChild(card);
+      });
+
+      window.moveTest = function (dir) {
+        currentT = currentT + dir;
+        if (currentT < 0) currentT = testimonials.length - 1;
+        if (currentT >= testimonials.length) currentT = 0;
+        renderTest();
+      };
+
+      function renderTest() {
+        var els = track.children;
+        var len = els.length;
+        var half = Math.floor(len / 2);
+
+        for (var i = 0; i < len; i++) {
+          var off = i - currentT;
+
+          // Lógica de loop infinito para array circular
+          if (off > half) off -= len;
+          else if (off < -half) off += len;
+
+          var abs = Math.abs(off);
+          var tx = off * 250;
+          var ry = off < 0 ? 35 : off > 0 ? -35 : 0;
+          var sc = abs === 0 ? 1 : 0.85;
+          var z = abs === 0 ? 10 : 10 - abs;
+          var op = abs > 2 ? 0 : 1 - abs * 0.25;
+
+          els[i].style.transform = 'translateX(' + tx + 'px) rotateY(' + ry + 'deg) scale(' + sc + ')';
+          els[i].style.zIndex = z;
+          els[i].style.opacity = op;
+          els[i].style.filter = abs === 0 ? 'brightness(1)' : 'brightness(0.7)';
+          els[i].style.pointerEvents = abs > 1 ? 'none' : 'auto';
+        }
+      }
+      renderTest();
+
+      // ─── MAGNETIC BUTTONS ───
+      ['heroCta', 'ctaBtn', 'waFloat'].forEach(function (id) {
+        var btn = document.getElementById(id);
+        if (!btn) return;
+        btn.addEventListener('mousemove', function (e) {
+          var rect = btn.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2;
+          var cy = rect.top + rect.height / 2;
+          var bx = (e.clientX - cx) * 0.25;
+          var by = (e.clientY - cy) * 0.25;
+          btn.style.transform = 'translate(' + bx + 'px,' + by + 'px)';
+        });
+        btn.addEventListener('mouseleave', function () { btn.style.transform = 'translate(0,0)'; });
+      });
+    })();
+
+    // ─── MODALS ───
+    window.openModal = function (id) {
+      document.getElementById(id).classList.add('active');
+      document.body.style.overflow = 'hidden';
+    };
+    window.closeModal = function (id) {
+      document.getElementById(id).classList.remove('active');
+      document.body.style.overflow = '';
+    };
+    document.querySelectorAll('.modal-overlay').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        if (e.target === this) closeModal(this.id);
+      });
+    });
+
+    // ─── FAQ ───
+    function toggleFaq(el) {
+      var wasOpen = el.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function (i) { i.classList.remove('open'); });
+      if (!wasOpen) el.classList.add('open');
+    }
+
+    // ─── WHATSAPP HELPER ───
+    function openWa(procedure) {
+      var msg = encodeURIComponent('Olá, gostaria de agendar uma consulta para ' + procedure + '.');
+      window.open('https://wa.me/5541999999999?text=' + msg, '_blank');
+    }
+  </script>
+</body>
+
+</html>
