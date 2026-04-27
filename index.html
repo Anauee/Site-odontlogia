@@ -1093,7 +1093,7 @@
         display: block;
         flex-shrink: 0;
       }
-      
+
       .mobile-only {
         display: initial;
       }
@@ -1141,7 +1141,7 @@
         gap: 0;
         align-items: flex-start;
       }
-      
+
       .location-info {
         display: contents;
       }
@@ -1164,7 +1164,7 @@
         width: 100%;
       }
 
-      .location-info > a {
+      .location-info>a {
         order: 2;
         align-self: center;
         margin-top: 16px;
@@ -1207,7 +1207,7 @@
         margin: 0 auto;
         box-sizing: border-box;
       }
-      
+
       .modal-overlay.active .modal-box {
         transform: none;
       }
@@ -1220,7 +1220,7 @@
         height: 36px;
         z-index: 200;
         background: var(--white);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
       }
 
       .modal-header {
@@ -1249,11 +1249,11 @@
       .m-card {
         padding: 16px;
       }
-      
+
       .m-card h4 {
         font-size: 17px;
       }
-      
+
       .m-card p {
         font-size: 14px;
       }
@@ -1299,7 +1299,7 @@
         margin-top: auto;
       }
 
-      #modalExames .modal-box > div:last-child {
+      #modalExames .modal-box>div:last-child {
         display: none;
       }
     }
@@ -1358,7 +1358,7 @@
       <div class="about-grid">
         <div class="about-img" id="aboutImg">
           <img
-            src="https://zqbteazpirbktxbmhzog.supabase.co/storage/v1/object/public/agencia%20converteu/imagem_2026-04-17_172737550.png"
+            src="https://zqbteazpirbktxbmhzog.supabase.co/storage/v1/object/public/agencia%20converteu/351f3ea852ce51900bf497fe88ff4fa5.jpg"
             alt="Dra. Amanda Mendes" style="width: 100%; height: 100%; object-fit: cover; z-index: 1;">
         </div>
         <div class="about-text">
@@ -1832,9 +1832,9 @@
     });
 
     // Mobile Exames Tags Click
-    document.querySelectorAll('.m-tag').forEach(function(tag) {
-      tag.addEventListener('click', function() {
-        if(window.innerWidth <= 768) {
+    document.querySelectorAll('.m-tag').forEach(function (tag) {
+      tag.addEventListener('click', function () {
+        if (window.innerWidth <= 768) {
           // Extrai o texto ignorando o ::after (que não entra no innerText da mesma forma, mas por segurança removemos "Agendar exame")
           var proc = this.innerText.replace('Agendar exame', '').trim();
           openWa(proc);
